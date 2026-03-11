@@ -1,5 +1,23 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 1rem;
+  background: #f7f7fb;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.active {
+  color: #2563eb;
 }

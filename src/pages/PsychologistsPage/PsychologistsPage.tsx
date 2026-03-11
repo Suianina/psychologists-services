@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './PsychologistsPage.module.css';
 
 export default function PsychologistsPage() {

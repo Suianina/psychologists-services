@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './FavoritesPage.module.css';
 
 export default function FavoritesPage() {
