@@ -1,0 +1,2 @@
+// Placeholder firebase setup
+export {};
