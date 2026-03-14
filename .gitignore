@@ -33,3 +33,4 @@ dist-ssr
 .firebaserc
 firebase-debug.log
 # firebase.json is safe to commit and needed for deployment
+my-app
