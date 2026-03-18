@@ -9,20 +9,7 @@ import {
   orderByKey,
 } from "firebase/database";
 import { database } from "./firebase";
-
-export interface Psychologist {
-  id: string;
-  name: string;
-  avatar_url: string;
-  experience: number;
-  reviews: number;
-  price_per_hour: number;
-  rating: number;
-  license: string;
-  specialization: string;
-  initial_consultation: string | boolean;
-  about: string;
-}
+import type { Psychologist } from "../types/psychologist";
 
 export const getPsychologists = async (): Promise<Psychologist[]> => {
   try {
