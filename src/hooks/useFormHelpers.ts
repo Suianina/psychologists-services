@@ -7,7 +7,11 @@ interface UseFormHelpersProps {
 
 export const useFormHelpers = ({ onClose, reset }: UseFormHelpersProps) => {
   const handleSuccess = (message: string) => {
-    toast.success(message);
+    try {
+      toast.success(message);
+    } catch (error) {
+      console.log("Success:", message);
+    }
     if (reset) {
       reset();
     }
@@ -20,7 +24,11 @@ export const useFormHelpers = ({ onClose, reset }: UseFormHelpersProps) => {
   ) => {
     console.error(error);
     const message = error.message || defaultMessage;
-    toast.error(message);
+    try {
+      toast.error(message);
+    } catch (err) {
+      console.error("Error:", message);
+    }
     return message;
   };
 
