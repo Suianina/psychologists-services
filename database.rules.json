@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "psychologists": {
+      ".read": true,
+      ".write": false,
+      ".indexOn": ["name", "price_per_hour", "rating"]
+    },
+    "users": {
+      "$userId": {
+        ".read": "auth.uid === $userId",
+        ".write": "auth.uid === $userId",
+        "favorites": {
+          ".read": "auth.uid === $userId",
+          ".write": "auth.uid === $userId"
+        }
+      }
+    }
+  }
+}
