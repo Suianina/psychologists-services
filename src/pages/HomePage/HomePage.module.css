@@ -1,15 +1,210 @@
-.container {
-  padding: 1.5rem;
-  max-width: 960px;
-  margin: 0 auto;
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 80px 0;
+  min-height: calc(100vh - 80px);
+}
+
+.content {
+  max-width: 600px;
 }
 
 .title {
-  font-size: 2rem;
-  margin: 0 0 1rem;
+  font-weight: 600;
+  font-size: 80px;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 20px;
 }
 
-.subtitle {
-  font-size: 1.1rem;
-  line-height: 1.5;
+.italicAccent {
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.description {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 40px;
+  max-width: 510px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  padding: 18px 50px;
+  border-radius: 30px;
+  border: none;
+  transition: background-color var(--transition);
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.imageContainer {
+  position: relative;
+  border-radius: 30px;
+}
+
+.heroImage {
+  display: block;
+  width: 464px;
+  height: 526px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Floating Elements */
+.floatingElement {
+  position: absolute;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.usersIcon {
+  top: 40px;
+  right: -30px;
+  width: 40px;
+  height: 40px;
+  background-color: #fbc75e;
+  color: #fff;
+  transform: rotate(-15deg);
+  border-radius: 10px;
+}
+
+.questionIcon {
+  top: 200px;
+  left: -40px;
+  width: 40px;
+  height: 40px;
+  background-color: #4535af;
+  color: #fff;
+  transform: rotate(15deg);
+  border-radius: 10px;
+}
+
+.experienceBadge {
+  bottom: 40px;
+  left: -60px;
+  background-color: var(--color-primary);
+  padding: 32px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 16px;
+  color: #fff;
+  min-width: 200px;
+}
+
+.checkIconWrapper {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  background-color: #fff;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.experienceText {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.experienceCount {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 60px;
+  }
+
+  .heroImage {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroSection {
+    flex-direction: column-reverse;
+    padding: 40px 0;
+    text-align: center;
+    gap: 60px;
+  }
+
+  .content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+
+  .description {
+    margin: 0 auto 40px;
+  }
+
+  .heroImage {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .usersIcon {
+    right: -10px;
+  }
+
+  .questionIcon {
+    left: -10px;
+  }
+
+  .experienceBadge {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 20px;
+    font-size: 18px;
+  }
+
+  .experienceBadge {
+    width: 90%;
+    bottom: 20px;
+  }
 }

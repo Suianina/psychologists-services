@@ -47,3 +47,33 @@ declare module "*.webp" {
   const content: string;
   export default content;
 }
+
+declare module "react-icons/go" {
+  import { IconType } from "react-icons";
+  export const GoHeart: IconType;
+  export const GoHeartFill: IconType;
+  export const GoArrowUpRight: IconType;
+}
+
+declare module "react-icons/fa" {
+  import { IconType } from "react-icons";
+  export const FaStar: IconType;
+  export const FaRegStar: IconType;
+  export const FaPhone: IconType;
+  export const FaEnvelope: IconType;
+  export const FaCheck: IconType;
+  export const FaUser: IconType;
+  export const FaQuestion: IconType;
+}
+
+declare module "react-icons/ai" {
+  import { IconType } from "react-icons";
+  export const AiOutlineClose: IconType;
+  export const AiOutlineMenu: IconType;
+}
+
+declare module "clsx" {
+  type ClassValue = string | number | boolean | null | undefined | ClassValue[];
+  function clsx(...inputs: ClassValue[]): string;
+  export default clsx;
+}
