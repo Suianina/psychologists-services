@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import PsychologistsPage from "./pages/PsychologistsPage/PsychologistsPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 
-export default function App() {
+function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -16,3 +16,5 @@ export default function App() {
     </Routes>
   );
 }
+
+export default App;
