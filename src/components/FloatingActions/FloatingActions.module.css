@@ -1,5 +1,17 @@
-.floatingActions {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+.container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    z-index: 900;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        bottom: 20px;
+        right: 20px;
+    }
 }

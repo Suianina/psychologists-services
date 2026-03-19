@@ -1,1 +1,2 @@
-export { default } from './FloatingActions';
+import FloatingActions from "./FloatingActions";
+export default FloatingActions;
