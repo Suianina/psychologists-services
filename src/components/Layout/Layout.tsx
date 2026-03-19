@@ -1,11 +1,24 @@
+import Header from "../Header";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "../Header/Header";
+import { Toaster } from "react-hot-toast";
+import FloatingActions from "../FloatingActions";
 
-export default function Layout() {
-  return (
-    <div>
-      <Header />
-      <Outlet />
-    </div>
-  );
-}
+import styles from "./Layout.module.css";
+
+const Layout = () => {
+    return (
+        <div className={styles.container}>
+            <Header />
+            <main>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Outlet />
+                </Suspense>
+            </main>
+            <FloatingActions />
+            <Toaster position="top-center" reverseOrder={false} />
+        </div>
+    );
+};
+
+export default Layout;
