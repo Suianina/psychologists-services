@@ -68,6 +68,8 @@ declare module "react-icons/fa" {
   export const FaPalette: IconType;
   export const FaHeart: IconType;
   export const FaRegHeart: IconType;
+  export const FaBars: IconType;
+  export const FaTimes: IconType;
 }
 
 declare module "react-icons/ai" {
