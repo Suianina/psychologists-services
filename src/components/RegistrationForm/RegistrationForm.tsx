@@ -38,7 +38,6 @@ interface RegistrationFormProps {
 const RegistrationForm: React.FC<RegistrationFormProps> = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
-
   const { handleSuccess, handleError } = useFormHelpers({ onClose });
 
   const {
@@ -63,7 +62,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onClose }) => {
         displayName: data.name,
       });
 
-      await set(ref(database, `${DB_ROOT}/psychologists/users/${user.uid}`), {
+      await set(ref(database, `${DB_ROOT}/users/${user.uid}`), {
         username: data.name,
         email: data.email,
       });
@@ -88,7 +87,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onClose }) => {
         Thank you for your interest in our platform! In order to register, we
         need some information. Please provide us with the following information.
       </p>
-
       <div className={styles.inputGroup}>
         <div className={styles.inputWrapper}>
           <input
@@ -101,7 +99,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onClose }) => {
             <p className={styles.errorText}>{errors.name.message}</p>
           )}
         </div>
-
         <div className={styles.inputWrapper}>
           <input
             type="email"
@@ -113,7 +110,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onClose }) => {
             <p className={styles.errorText}>{errors.email.message}</p>
           )}
         </div>
-
         <div className={styles.inputWrapper}>
           <input
             type={showPassword ? "text" : "password"}
@@ -133,9 +129,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onClose }) => {
           )}
         </div>
       </div>
-
       {serverError && <p className={styles.errorText}>{serverError}</p>}
-
       <button
         type="submit"
         className={styles.submitButton}
