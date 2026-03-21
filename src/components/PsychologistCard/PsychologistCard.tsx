@@ -52,9 +52,10 @@ const PsychologistCard: React.FC<PsychologistCardProps> = ({
                 </span>
               </div>
               <button
-                className={clsx(styles.favoriteButton, {
-                  [styles.favoriteActive]: isFavorite,
-                })}
+                className={clsx(
+                  styles.favoriteButton,
+                  isFavorite && styles.favoriteActive,
+                )}
                 onClick={onToggleFavorite}
               >
                 {isFavorite ? <FaHeart size={26} /> : <FaRegHeart size={26} />}
