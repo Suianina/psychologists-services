@@ -64,6 +64,10 @@ declare module "react-icons/fa" {
   export const FaCheck: IconType;
   export const FaUser: IconType;
   export const FaQuestion: IconType;
+  export const FaChevronDown: IconType;
+  export const FaPalette: IconType;
+  export const FaHeart: IconType;
+  export const FaRegHeart: IconType;
 }
 
 declare module "react-icons/ai" {

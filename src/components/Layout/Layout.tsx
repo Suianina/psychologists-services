@@ -7,18 +7,18 @@ import FloatingActions from "../FloatingActions";
 import styles from "./Layout.module.css";
 
 const Layout = () => {
-    return (
-        <div className={styles.container}>
-            <Header />
-            <main>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Outlet />
-                </Suspense>
-            </main>
-            <FloatingActions />
-            <Toaster position="top-center" reverseOrder={false} />
-        </div>
-    );
+  return (
+    <div className={styles.container}>
+      <Header />
+      <main>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
+      </main>
+      <FloatingActions />
+      <Toaster position="top-center" />
+    </div>
+  );
 };
 
 export default Layout;

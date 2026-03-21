@@ -1,1 +1,1 @@
-export { default } from './PsychologistCard';
+export { default } from "./PsychologistCard";
