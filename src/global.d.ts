@@ -70,6 +70,7 @@ declare module "react-icons/fa" {
   export const FaRegHeart: IconType;
   export const FaBars: IconType;
   export const FaTimes: IconType;
+  export const FaArrowUp: IconType;
 }
 
 declare module "react-icons/ai" {
