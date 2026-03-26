@@ -1,11 +1,24 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import styles from "./HomePage.module.css";
 import heroImage from "../../assets/hero_img.webp";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaCheck, FaUser, FaQuestion } from "react-icons/fa";
 import clsx from "clsx";
+import { useAuth } from "../../hooks/useAuth";
 
 const HomePage = () => {
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    if (currentUser) {
+      navigate("/psychologists");
+    } else {
+      toast.error("Please login or register to continue");
+    }
+  };
+
   return (
     <section className={styles.heroSection}>
       <div className={styles.content}>
@@ -17,10 +30,9 @@ const HomePage = () => {
           We help you to reveal your potential, overcome challenges and find a
           guide in your own life with the help of our experienced psychologists.
         </p>
-        <Link to="/psychologists" className={styles.ctaButton}>
-          Get started
+        <button onClick={handleGetStarted} className={styles.ctaButton}>
           <GoArrowUpRight size={20} />
-        </Link>
+        </button>
       </div>
 
       <div className={styles.imageContainer}>
@@ -30,19 +42,14 @@ const HomePage = () => {
           className={styles.heroImage}
         />
 
-        {/* Floating Elements (Decorations) */}
-
-        {/* Users Icon - Top Right */}
         <div className={clsx(styles.floatingElement, styles.usersIcon)}>
           <FaUser size={20} />
         </div>
 
-        {/* Question Icon - Left Middle */}
         <div className={clsx(styles.floatingElement, styles.questionIcon)}>
           <FaQuestion size={20} />
         </div>
 
-        {/* Experience Badge - Bottom Left */}
         <div className={clsx(styles.floatingElement, styles.experienceBadge)}>
           <div className={styles.checkIconWrapper}>
             <FaCheck size={30} />
