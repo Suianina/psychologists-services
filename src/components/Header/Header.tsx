@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import styles from "./Header.module.css";
 import { useAuth } from "../../hooks/useAuth";
@@ -11,6 +11,7 @@ import { useState } from "react";
 
 const Header = () => {
   const { currentUser, logOut } = useAuth();
+  const navigate = useNavigate();
   const loginModal = useModal();
   const registerModal = useModal();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,6 +22,12 @@ const Header = () => {
 
   const buildLinkClass = ({ isActive }: { isActive: boolean }) => {
     return clsx(styles.navLink, isActive && styles.navLinkActive);
+  };
+
+  const handleLogout = async () => {
+    await logOut();
+    navigate("/");
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -102,13 +109,7 @@ const Header = () => {
                     {currentUser.displayName || currentUser.email}
                   </span>
                 </div>
-                <button
-                  className={styles.logoutButton}
-                  onClick={() => {
-                    logOut();
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
+                <button className={styles.logoutButton} onClick={handleLogout}>
                   Log out
                 </button>
               </div>
