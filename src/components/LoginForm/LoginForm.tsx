@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import styles from "../shared/Form.module.css";
 import { useFormHelpers } from "../../hooks/useFormHelpers";
 
@@ -27,6 +28,7 @@ interface LoginFormProps {
 const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const { handleSuccess, handleError } = useFormHelpers({ onClose });
 
@@ -43,6 +45,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
       handleSuccess("Logged in successfully!");
+      onClose();
+      navigate("/psychologists");
     } catch (error: any) {
       const msg = handleError(error, "Invalid email or password.");
       setServerError(msg);

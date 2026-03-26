@@ -31,6 +31,7 @@ const HomePage = () => {
           guide in your own life with the help of our experienced psychologists.
         </p>
         <button onClick={handleGetStarted} className={styles.ctaButton}>
+          Get started
           <GoArrowUpRight size={20} />
         </button>
       </div>

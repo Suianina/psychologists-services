@@ -7,6 +7,7 @@ import { auth, database } from "../../firebase/firebase";
 import { DB_ROOT } from "../../firebase/constants";
 import { ref, set } from "firebase/database";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import styles from "../shared/Form.module.css";
 import { useFormHelpers } from "../../hooks/useFormHelpers";
 
@@ -38,6 +39,7 @@ interface RegistrationFormProps {
 const RegistrationForm: React.FC<RegistrationFormProps> = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const navigate = useNavigate(); // ← додати
 
   const { handleSuccess, handleError } = useFormHelpers({ onClose });
 
@@ -69,6 +71,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onClose }) => {
       });
 
       handleSuccess("Registration successful!");
+      onClose();
+      navigate("/psychologists");
     } catch (error: any) {
       if (error.code === "auth/email-already-in-use") {
         const msg = "Email is already in use.";
